@@ -1,0 +1,38 @@
+<title>LOKER POD MARA KAJ</title><div class="container">
+    <h1>LOKER POD MARA KAJ</h1>
+    <p class="powered">Powered By CK-ERROR</p><textarea id="message" placeholder="Enter your message"></textarea>
+
+<input type="number" id="count" placeholder="How many times?" min="1" max="5000">
+
+<button onclick="generateText()">Generate</button>
+<button onclick="copyText()">Copy All</button>
+
+<pre id="output"></pre>
+
+</div><script>
+function generateText() {
+    const msg = document.getElementById("message").value.trim();
+    const count = parseInt(document.getElementById("count").value);
+
+    if (!msg || !count) {
+        alert("Enter message and count");
+        return;
+    }
+
+    let result = "";
+
+    for (let i = 0; i < count; i++) {
+        result += msg + "\n";
+    }
+
+    document.getElementById("output").textContent = result;
+}
+
+function copyText() {
+    const text = document.getElementById("output").textContent;
+
+    navigator.clipboard.writeText(text)
+        .then(() => alert("Copied Successfully!"))
+        .catch(() => alert("Copy Failed"));
+}
+</script>
