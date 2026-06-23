@@ -1,38 +1,128 @@
-<title>LOKER POD MARA KAJ</title><div class="container">
-    <h1>LOKER POD MARA KAJ</h1>
-    <p class="powered">Powered By CK-ERROR</p><textarea id="message" placeholder="Enter your message"></textarea>
-
-<input type="number" id="count" placeholder="How many times?" min="1" max="5000">
-
-<button onclick="generateText()">Generate</button>
-<button onclick="copyText()">Copy All</button>
-
-<pre id="output"></pre>
-
-</div><script>
-function generateText() {
-    const msg = document.getElementById("message").value.trim();
-    const count = parseInt(document.getElementById("count").value);
-
-    if (!msg || !count) {
-        alert("Enter message and count");
-        return;
-    }
-
-    let result = "";
-
-    for (let i = 0; i < count; i++) {
-        result += msg + "\n";
-    }
-
-    document.getElementById("output").textContent = result;
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOKER POD MARA KAJ</title><style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Consolas, monospace;
 }
 
-function copyText() {
-    const text = document.getElementById("output").textContent;
-
-    navigator.clipboard.writeText(text)
-        .then(() => alert("Copied Successfully!"))
-        .catch(() => alert("Copy Failed"));
+body{
+background:#000;
+color:#00ff41;
+min-height:100vh;
+padding:20px;
 }
-</script>
+
+.container{
+max-width:900px;
+margin:auto;
+background:#050505;
+border:1px solid #00ff41;
+border-radius:15px;
+padding:25px;
+box-shadow:0 0 20px #00ff41;
+}
+
+h1{
+text-align:center;
+font-size:32px;
+text-shadow:0 0 15px #00ff41;
+margin-bottom:10px;
+}
+
+.power{
+text-align:center;
+margin-bottom:20px;
+opacity:.8;
+}
+
+textarea,input{
+width:100%;
+background:#111;
+color:#00ff41;
+border:1px solid #00ff41;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+}
+
+button{
+background:#00ff41;
+color:#000;
+border:none;
+padding:12px 20px;
+margin:5px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+box-shadow:0 0 15px #00ff41;
+}
+
+#output{
+margin-top:20px;
+background:#111;
+border:1px solid #00ff41;
+padding:15px;
+height:300px;
+overflow:auto;
+white-space:pre-wrap;
+border-radius:8px;
+}
+
+.status{
+margin-bottom:15px;
+line-height:1.8;
+}
+</style></head><body><div class="container"><h1>LOKER POD MARA KAJ</h1><div class="power">
+Powered By CK-ERROR
+</div><div class="status">
+[ SYSTEM ONLINE ]<br>
+[ ACCESS GRANTED ]<br>
+[ TERMINAL READY ]
+</div><textarea id="message" rows="5" placeholder="Enter Message"></textarea><input type="number" id="count" placeholder="Repeat Count"><button onclick="generateText()">GENERATE</button>
+<button onclick="copyText()">COPY ALL</button>
+
+<div id="output"></div></div><script>
+
+function generateText(){
+
+const msg=document.getElementById("message").value.trim();
+const count=parseInt(document.getElementById("count").value);
+
+if(!msg || !count){
+alert("Enter Message And Count");
+return;
+}
+
+let result="";
+
+for(let i=0;i<count;i++){
+result += msg + "\n";
+}
+
+document.getElementById("output").textContent=result;
+}
+
+function copyText(){
+
+const text=document.getElementById("output").textContent;
+
+navigator.clipboard.writeText(text)
+.then(()=>{
+alert("Copied Successfully");
+})
+.catch(()=>{
+alert("Copy Failed");
+});
+
+}
+
+</script></body>
+</html>
